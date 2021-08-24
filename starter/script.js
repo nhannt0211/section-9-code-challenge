@@ -50,6 +50,160 @@ const restaurant = {
 };
 
 /**
+ * 120, 121, 122. Working with Strings
+ */
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+/*
+//Part 1
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function(seat) {
+  //B and E is middle seat
+  const char = seat.slice(-1);
+  console.log((char === 'B' || char === 'E') ? "It's middle seat" : "It's not middle seat");
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('34C');
+checkMiddleSeat('22D');
+checkMiddleSeat('2E');
+*/
+
+/*
+//Part 2
+console.log(airline.toLowerCase());
+console.log('jonas'.toUpperCase());
+
+//Fix capitalization in name
+const passenger = 'jOnaS';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//Compare emails
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.io \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//Replacing 
+const priceGB = '288,97@';
+console.log(priceGB);
+const priceUS = priceGB.replace(',', '.').replace('@', '$');
+console.log(priceUS);
+
+const announcement = 'All passengers come to barding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+//Booleans
+const plane1 = 'Airbus A320neo';
+console.log(plane1.includes('neo'));
+console.log(plane1.includes('boeing'));
+console.log(plane1.startsWith('boeing'));
+console.log(plane1.startsWith('A320'));
+
+if (plane1.startsWith('Airbus') && plane1.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+//Pratice exercise
+const checkBaggage = function(items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allow on board');
+  } else {
+    console.log('Welcome aboard');
+  }
+}
+
+checkBaggage('I have a laptop, some foof and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+*/
+
+//Part 3
+//Split
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ')
+console.log(firstName, lastName);
+
+//Join
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function(name) {
+  const word = name.split(' ');
+  const result = []
+  for (let item of word) {
+    // const newWord = item[0].toUpperCase() + item.slice(1);
+    const newWord = item.replace(item[0], item[0].toUpperCase())
+    result.push(newWord);
+  }
+  console.log(result.join(' '));
+}
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schemedtmann');
+
+//Padding 
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(35, '+'));
+console.log('Jonas'.padStart(25, '+').padEnd(35, '+'));
+
+const maskCreditCard = function(number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard(141241212));
+console.log(maskCreditCard('554311319'));
+
+//Repeat
+const mess = 'Bad weather... All Departues Delayed...';
+console.log(mess.repeat(5));
+
+const planesInline = function(n) {
+  console.log(`There are ${n} planes in line${'!'.repeat(5)}`);
+}
+planesInline(3);
+planesInline(5);
+planesInline(12);
+
+
+/**
  * 117. Maps: Iteration
  */
 /*
