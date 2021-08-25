@@ -2,7 +2,21 @@
 
 // Data needed for a later exercise
 const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+  `_Delayed_Departure;fao93766109;txl2133758440;11:25
+  +_Arrival;bru0943384722;fao93766109;11:45
+  +_Delayed_Arrival;hel7439299980;fao93766109;12:05
+  +_Departure;fao93766109;lis2323639855;12:30`;
+
+for (const flight of flights.split('+')) {
+  const [status, from, to, hour] = flight.split(';');
+  
+  const flightStatus = `${status.startsWith('_Delayed') ? '!!!' : ''} ${status.replaceAll('_', ' ').trim()}`;
+  const fromLocation = from.slice(0,3).toUpperCase();
+  const toLocation = to.slice(0,3).toUpperCase();
+  const time = hour.replace(':', 'h');
+
+  console.log(`${flightStatus.padStart(24, ' ')} from ${fromLocation} to ${toLocation} (${time})`);
+}
 
 // Data needed for first part of the section
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
@@ -151,6 +165,7 @@ checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
 */
 
+/*
 //Part 3
 //Split
 console.log('a+very+nice+string'.split('+'));
@@ -201,6 +216,7 @@ const planesInline = function(n) {
 planesInline(3);
 planesInline(5);
 planesInline(12);
+*/
 
 
 /**
